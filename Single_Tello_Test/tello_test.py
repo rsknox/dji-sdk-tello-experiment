@@ -1,12 +1,13 @@
-from tello import Tello
-import sys
 from datetime import datetime
+import sys
 import time
+
+from tello import Tello
 
 start_time = str(datetime.now())
 
-file_name = sys.argv[1]
-
+# file_name = sys.argv[1]
+file_name = 'command.txt'
 f = open(file_name, "r")
 commands = f.readlines()
 
@@ -23,10 +24,12 @@ for command in commands:
         else:
             tello.send_command(command)
 
-log = tello.get_log()
-
-out = open('log/' + start_time + '.txt', 'w')
-for stat in log:
-    stat.print_stats()
-    str = stat.return_stats()
-    out.write(str)
+f.close()
+# log = tello.get_log()
+# 
+# out = open('log/' + start_time + '.txt', 'w')
+# for stat in log:
+#     stat.print_stats()
+#     str = stat.return_stats()
+#     out.write(str)
+# out.close()
