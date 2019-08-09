@@ -1,8 +1,8 @@
 from datetime import datetime
 import sys
+from tello import Tello
 import time
 
-from tello import Tello
 
 start_time = str(datetime.now())
 
@@ -25,6 +25,8 @@ for command in commands:
             tello.send_command(command)
 
 f.close()
+print 'Exit'
+exit ()
 # log = tello.get_log()
 # 
 # out = open('log/' + start_time + '.txt', 'w')
